@@ -1,29 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>PC Integrated Lab</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<h1>PC Integrated Lab Dashboard</h1>
 
-<h2>PC Integrated Lab Dashboard</h2>
-
-<div class="card">
-    <p>Voltage: <span id="voltage">--</span> V</p>
-    <p>Current: <span id="current">--</span> A</p>
-    <p>Temperature: <span id="temperature">--</span> °C</p>
-    <p>Load: <span id="load">--</span> W</p>
+<div class="sensor-box">
+    <div class="sensor-row">Voltage: <span id="voltage" class="sensor-value">--</span></div>
+    <div class="sensor-row">Current: <span id="current" class="sensor-value">--</span></div>
+    <div class="sensor-row">Temperature: <span id="temperature" class="sensor-value">--</span></div>
+    <div class="sensor-row">Load: <span id="load" class="sensor-value">--</span></div>
 </div>
 
-<h3>Motor Control</h3>
-<button onclick="motorOn()">ON</button>
-<button onclick="motorOff()">OFF</button>
-<p>Status: <span id="status">OFF</span></p>
+<h2 style="text-align:center;margin-top:40px;">Motor Control</h2>
 
-<h3>Load Control</h3>
-<button onclick="increaseLoad()">INC</button>
-<button onclick="decreaseLoad()">DEC</button>
+<div class="button-row">
+    <button class="btn" onclick="motorOn()">ON</button>
+    <button class="btn red" onclick="motorOff()">OFF</button>
+</div>
 
-<script src="script.js"></script>
-</body>
-</html>
+<p class="status-text">Status: <span id="motorStatus">OFF</span></p>
+
+<h2 style="text-align:center;">Load Control</h2>
+
+<div class="button-row">
+    <button class="btn" onclick="increaseLoad()">INC</button>
+    <button class="btn red" onclick="decreaseLoad()">DEC</button>
+</div>
