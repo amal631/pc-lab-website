@@ -1,27 +1,27 @@
-// CHANGE THIS TO YOUR ESP8266 IP ADDRESS
-const ESP_IP = "http://192.168.1.50";  // example, replace with real IP
+// Fake ESP8266 API URL
+const ESP_FAKE_URL = "https://mocki.io/v1/fb538cde-a90e-417b-b271-882c976757fc";
 
 function motorOn() {
-    fetch(`${ESP_IP}/motor/on`)
-        .then(() => document.getElementById("status").innerText = "ON");
+    alert("SIMULATION: Motor ON");
+    document.getElementById("status").innerText = "ON";
 }
 
 function motorOff() {
-    fetch(`${ESP_IP}/motor/off`)
-        .then(() => document.getElementById("status").innerText = "OFF");
+    alert("SIMULATION: Motor OFF");
+    document.getElementById("status").innerText = "OFF";
 }
 
 function increaseLoad() {
-    fetch(`${ESP_IP}/load/inc`);
+    alert("SIMULATION: Load Increased");
 }
 
 function decreaseLoad() {
-    fetch(`${ESP_IP}/load/dec`);
+    alert("SIMULATION: Load Decreased");
 }
 
-// FETCH SENSOR DATA EVERY 1 SECOND
+// Fetch fake sensor data every 1 second
 setInterval(() => {
-    fetch(`${ESP_IP}/data`)
+    fetch(ESP_FAKE_URL)
         .then(res => res.json())
         .then(data => {
             document.getElementById("voltage").innerText = data.voltage;
@@ -29,5 +29,5 @@ setInterval(() => {
             document.getElementById("temperature").innerText = data.temperature;
             document.getElementById("load").innerText = data.load;
         })
-        .catch(err => console.log("ESP Offline:", err));
+        .catch(err => console.error("Fake ESP error:", err));
 }, 1000);
